@@ -7,12 +7,30 @@ const AccountSchema = new Schema({
         type: String,
         require: true
     },
-    account_limit: Number,
-    per_transaction_limit: Number,
-    last_account_limit: Number,
-    last_per_transaction_limit: Number,
-    account_limit_update_time: Number,
-    per_transaction_limit_update_time: Number
+    account_limit: {
+        type: Number,
+        default: 0
+    },
+    per_transaction_limit: {
+        type: Number,
+        default: 0
+    },
+    last_account_limit: {
+        type: Number,
+        default: 0
+    },
+    last_per_transaction_limit: {
+        type: Number,
+        default: 0
+    },
+    account_limit_update_time: {
+        type: Number,
+        default: Date.now()
+    },
+    per_transaction_limit_update_time: {
+        type: Number,
+        default: Date.now()
+    }
 });
 
 export default mongoose.model('Account', AccountSchema);

@@ -10,6 +10,10 @@ class AccountRepo {
         const accountDetails = await AccountModel.findById(account_id);
         return accountDetails;
     }
+
+    async updateAccount(account_id: String, updateDoc: any) {
+        await AccountModel.findByIdAndUpdate(account_id, updateDoc);
+    }
 };
 
 export default new AccountRepo();

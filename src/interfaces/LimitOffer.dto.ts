@@ -7,10 +7,16 @@ export interface CreateLimitOfferRequest {
 }
 
 export enum OfferStatus {
-    PENDING, ACCEPTED, REJECTED
+    PENDING = "PENDING",
+    ACCEPTED = "ACCEPTED", REJECTED  = "REJECTED"
 }
 
 export interface GetActiveLimitOfferRequest {
     accountId: String,
     activeDate: Number
+};
+
+export interface UpdateLimitOfferRequest {
+    limitOfferId: String,
+    status: String
 };

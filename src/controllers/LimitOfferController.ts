@@ -1,6 +1,6 @@
 import express from 'express';
 import Joi from 'joi';
-import { LimitOfferType } from '../interfaces/ModelEnums';
+import { LimitOfferType, OfferStatus } from '../interfaces/ModelEnums';
 import { BaseController } from "./BaseController";
 import LimitOfferService from '../services/LimitOffer.service';
 
@@ -27,6 +27,17 @@ class LimitOfferController extends BaseController {
         Joi.assert(req.body, schema);
 
         const response = await LimitOfferService.getActiveLimitOffers(req.body);
+        return response;
+    }
+
+    async updateLimitOffer(req: express.Request) {
+        const schema = Joi.object({
+            limitOfferId: Joi.string().required(),
+            status: Joi.string().valid(OfferStatus.ACCEPTED, OfferStatus.REJECTED).required()
+        });
+        Joi.assert(req.body, schema);
+
+        const response  = await LimitOfferService.updateLimitOffer(req.body);
         return response;
     }
 };

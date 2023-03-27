@@ -13,5 +13,7 @@ router.get('/app/account/get', RequestMonitor(AccountController.getAccount));
 
 router.post('/app/limitOffer/create', RequestMonitor(LimitOfferController.createLimitOffer));
 router.get('/app/limitOffer/getActiveOffers', RequestMonitor(LimitOfferController.getActiveLimitOffers));
+router.get('/app/limitOffer/update', RequestMonitor(LimitOfferController.updateLimitOffer));
+
 
 export default router;
