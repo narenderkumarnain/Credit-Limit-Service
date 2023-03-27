@@ -1,2 +1,2 @@
-# Express-REST-API
-Express REST API template with Mongo DB 
+# Credit-Limit-Service
+Stack - NodeJS - TypeScript + MongoDB (Mongoose ORM)
